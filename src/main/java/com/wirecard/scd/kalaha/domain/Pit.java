@@ -15,6 +15,7 @@ public class Pit {
 
     public Pit() {
         this.stones = 6;
+        this.endZone = false;
     }
     public Pit(boolean endZone) {
         this.stones = 0;
