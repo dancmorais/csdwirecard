@@ -89,10 +89,11 @@ public class KalahaApplicationTests {
     public void distributeStonesAfterSelectPitNo8() {
         Board board = createBoard();
         int stones = 6;
-        Pit pit = board.selectPit(8);
+        int pitToSelect = 8;
+        Pit pit = board.selectPit(pitToSelect);
         Assert.assertEquals(0, pit.getStones());
         for (int i = 1; i <= stones; i++) {
-            Pit nextPit = board.getPitsAndZones().get( 8 + i);
+            Pit nextPit = board.getPitsAndZones().get( pitToSelect + i);
             Assert.assertEquals(nextPit.isEndZone() ? 1 : 7, nextPit.getStones());
         }
     }
