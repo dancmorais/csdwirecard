@@ -23,4 +23,7 @@ public class Board {
     endZones.add(new Pit(true));
   }
 
+  public Pit selectPit(int i) {
+    return pits.get(i);
+  }
 }

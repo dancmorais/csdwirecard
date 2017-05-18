@@ -48,6 +48,21 @@ public class KalahaApplicationTests {
     }
 
     @Test
+    public void isEmptyPitTest(){
+        Pit pit = new Pit();
+        pit.setStones(0);
+        Assert.assertEquals(0,pit.getStones());
+    }
+
+    //Select a pit, move the rocks and empty the pit
+    @Test
+    public void selectPitTest(){
+        Board board = new Board();
+        board.selectPit(0);
+        Assert.assertEquals(0, board.selectPit(0).getStones());
+    }
+
+    @Test
     public void doesBoardHaveEndZones(){
         Board board = createBoard();
         Assert.assertNotNull(board);
