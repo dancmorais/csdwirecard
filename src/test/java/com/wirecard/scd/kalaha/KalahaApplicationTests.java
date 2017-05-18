@@ -70,8 +70,9 @@ public class KalahaApplicationTests {
     Assert.assertNotNull(board);
     Assert.assertNotNull(board.getEndZones());
     Assert.assertEquals(2, board.getEndZones()
-                                .size());
+            .size());
   }
+
 
   @Test
   public void distributeStonesAfterSelectPit() {
@@ -85,21 +86,18 @@ public class KalahaApplicationTests {
     }
   }
 
-    @Test
-    public void distributeStonesAfterSelectPitNo8() {
-        Board board = createBoard();
-        int stones = 6;
-        int pitToSelect = 8;
-        Pit pit = board.selectPit(pitToSelect);
-        Assert.assertEquals(0, pit.getStones());
-        for (int i = 1; i <= stones; i++) {
-          if (pitToSelect + i > 13) {
-            pitToSelect = pitToSelect - (pitToSelect + i);
-          }
-            Pit nextPit = board.getPitsAndZones().get( pitToSelect + i);
-            Assert.assertEquals(nextPit.isEndZone() ? 1 : 7, nextPit.getStones());
-        }
+  @Test
+  public void dontFillOponentEndZone() {
+    Board board = createBoard();
+    for(Pit pit : board.getPitsAndZones()) {
+      if (!pit.isEndZone()) {
+        pit.setStones(7);
+      }
+      board.selectPit(5);
+      Assert.assertEquals(0, board.getEndZones().get(13));
     }
+
+  }
 
   public Board createBoard() {
     return new Board();
