@@ -15,7 +15,7 @@ public class Board {
     pits = new ArrayList<>();
     // Add 12 pits: 6 for each player
     for (int i = 0; i < 14; i++) {
-      if (i != 0 && i % 6 == 0) {
+      if (i == 6 || i == 13) {
         pits.add(new Pit(true));
       } else {
         pits.add(new Pit());
@@ -42,6 +42,10 @@ public class Board {
       }
     }
     return pits;
+  }
+
+  public List<Pit> getPitsAndZones(){
+    return this.pits;
   }
 
   public Pit selectPit(int i) {
