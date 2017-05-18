@@ -39,6 +39,21 @@ public class KalahaApplicationTests {
         Assert.assertTrue(endZone);
     }
 
+    @Test
+    public void doesBoardHavePits(){
+        Board board = createBoard();
+        Assert.assertNotNull(board);
+        Assert.assertNotNull(board.getPits());
+        Assert.assertEquals(12, board.getPits().size());
+    }
+
+    @Test
+    public void doesBoardHaveEndZones(){
+        Board board = createBoard();
+        Assert.assertNotNull(board);
+        Assert.assertNotNull(board.getEndZones());
+        Assert.assertEquals(2, board.getEndZones().size());
+    }
 
     public Board createBoard() {
         Board board = new Board();
