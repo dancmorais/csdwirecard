@@ -44,13 +44,14 @@ public class Board {
     return pits;
   }
 
-  public List<Pit> getPitsAndZones(){
+  public List<Pit> getPitsAndZones() {
     return this.pits;
   }
 
   public Pit selectPit(int i) {
     distributeStones(i);
-    pits.get(i).setStones(0);
+    pits.get(i)
+        .setStones(0);
     return pits.get(i);
   }
 
@@ -58,13 +59,10 @@ public class Board {
     int stones = pits.get(selectedPit)
                      .getStones();
     for (int j = 1; j <= stones; j++) {
-//        if(selectedPit + j > 13){
-//
-//        }
-        if(j == 13){
-            stones = stones - 13;
-            j = -1;
-        }
+      if (selectedPit + j > 13) {
+        selectedPit = selectedPit - (selectedPit + j);
+      }
+
       Pit currentPit = pits.get(selectedPit + j);
       currentPit.setStones(currentPit.getStones() + 1);
 
