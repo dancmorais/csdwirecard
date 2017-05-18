@@ -13,4 +13,22 @@ public class KalahaApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void hasBoard() {
+
+	}
+
+	public Board createBoard(){
+		Board board = new Board();
+		return board;
+	}
+
+	public class Board{
+
+
+
+	}
+
+
+
 }
