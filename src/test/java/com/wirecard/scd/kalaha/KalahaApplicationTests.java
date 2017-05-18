@@ -1,6 +1,7 @@
 package com.wirecard.scd.kalaha;
 
 import com.wirecard.scd.kalaha.domain.Board;
+import com.wirecard.scd.kalaha.domain.Pit;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,22 +21,25 @@ public class KalahaApplicationTests {
 	}
 	@Test
 	public void hasPit() {
-		Pit pit = null;
+		Pit pit = createPit();
 		Assert.assertNotNull(pit);
 
 	}
+	@Test
+	public void has6Stones() {
+		int stones = 0;
+		Assert.assertEquals(6,0);
+
+	}
+
 
 	public Board createBoard(){
 		Board board = new Board();
 		return board;
 	}
-
-	public class Pit {
-
+	public Pit createPit(){
+		Pit pit = new Pit();
+		return pit;
 	}
-
-
-
-
 
 }
