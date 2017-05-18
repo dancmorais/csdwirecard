@@ -56,18 +56,15 @@ public class KalahaApplicationTests {
     }
 
     public Board createBoard() {
-        Board board = new Board();
-        return board;
+        return new Board();
     }
 
     public Pit createPit() {
-        Pit pit = new Pit();
-        return pit;
+        return new Pit();
     }
 
     public Pit createEndZone() {
-        Pit pit = new Pit(true);
-        return pit;
+        return new Pit(true);
 
     }
 }

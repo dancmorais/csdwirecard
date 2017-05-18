@@ -6,9 +6,6 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by pavol.harhovsky on 5/18/2017.
- */
 @Getter
 public class Board {
   private List<Pit> pits;
