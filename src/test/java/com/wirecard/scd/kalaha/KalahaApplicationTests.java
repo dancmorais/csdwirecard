@@ -70,6 +70,15 @@ public class KalahaApplicationTests {
         Assert.assertEquals(2, board.getEndZones().size());
     }
 
+    @Test
+    public void distributeStonesAfterSelectPit(){
+        Board board = createBoard();
+        Pit pit = board.getPits().get(0);
+        Assert.assertEquals(0, pit.getStones());
+        Pit nextPit = board.getPits().get(1);
+        Assert.assertEquals(7, nextPit.getStones());
+    }
+
     public Board createBoard() {
         return new Board();
     }
