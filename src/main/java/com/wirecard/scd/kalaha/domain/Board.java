@@ -54,12 +54,20 @@ public class Board {
     return pits.get(i);
   }
 
-  public void distributeStones(int i) {
-    int stones = pits.get(i)
+  public void distributeStones(int selectedPit) {
+    int stones = pits.get(selectedPit)
                      .getStones();
     for (int j = 1; j <= stones; j++) {
-      Pit currentPit = pits.get(i + j);
+//        if(selectedPit + j > 13){
+//
+//        }
+        if(j == 13){
+            stones = stones - 13;
+            j = -1;
+        }
+      Pit currentPit = pits.get(selectedPit + j);
       currentPit.setStones(currentPit.getStones() + 1);
+
     }
   }
 

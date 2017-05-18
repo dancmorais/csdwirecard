@@ -76,18 +76,26 @@ public class KalahaApplicationTests {
   @Test
   public void distributeStonesAfterSelectPit() {
     Board board = createBoard();
-    Pit pit = board.getPits()
-                   .get(0);
-    int stones = pit.getStones();
-    pit = board.selectPit(0);
+    int stones = 6;
+    Pit pit = board.selectPit(0);
     Assert.assertEquals(0, pit.getStones());
     for (int i = 1; i <= stones; i++) {
       Pit nextPit = board.getPitsAndZones().get(i);
-      Assert.assertEquals(nextPit.isEndZone() ? 1: 7, nextPit.getStones());
+      Assert.assertEquals(nextPit.isEndZone() ? 1 : 7, nextPit.getStones());
     }
-
-
   }
+
+    @Test
+    public void distributeStonesAfterSelectPitNo8() {
+        Board board = createBoard();
+        int stones = 6;
+        Pit pit = board.selectPit(8);
+        Assert.assertEquals(0, pit.getStones());
+        for (int i = 1; i <= stones; i++) {
+            Pit nextPit = board.getPitsAndZones().get( 8 + i);
+            Assert.assertEquals(nextPit.isEndZone() ? 1 : 7, nextPit.getStones());
+        }
+    }
 
   public Board createBoard() {
     return new Board();
