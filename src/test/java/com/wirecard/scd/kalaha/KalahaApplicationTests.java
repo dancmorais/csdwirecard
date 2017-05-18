@@ -5,7 +5,6 @@ import com.wirecard.scd.kalaha.domain.Pit;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
@@ -13,33 +12,47 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class KalahaApplicationTests {
 
 
-	@Test
-	public void hasBoard() {
-		Board board = createBoard();
-		Assert.assertNotNull(board);
+    @Test
+    public void hasBoard() {
+        Board board = createBoard();
+        Assert.assertNotNull(board);
 
-	}
-	@Test
-	public void hasPit() {
-		Pit pit = createPit();
-		Assert.assertNotNull(pit);
+    }
 
-	}
-	@Test
-	public void has6Stones() {
-		int stones = 0;
-		Assert.assertEquals(6,0);
+    @Test
+    public void hasPit() {
+        Pit pit = createPit();
+        Assert.assertNotNull(pit);
 
-	}
+    }
+
+    @Test
+    public void has6Stones() {
+        int stones = createPit().getStones();
+        Assert.assertEquals(6, stones);
+
+    }
+
+    @Test
+    public void isPitEndZone() {
+        boolean endZone = createEndZone().isEndZone();
+        Assert.assertTrue(endZone);
+    }
 
 
-	public Board createBoard(){
-		Board board = new Board();
-		return board;
-	}
-	public Pit createPit(){
-		Pit pit = new Pit();
-		return pit;
-	}
+    public Board createBoard() {
+        Board board = new Board();
+        return board;
+    }
 
+    public Pit createPit() {
+        Pit pit = new Pit();
+        return pit;
+    }
+
+    public Pit createEndZone() {
+        Pit pit = new Pit(true);
+        return pit;
+
+    }
 }
