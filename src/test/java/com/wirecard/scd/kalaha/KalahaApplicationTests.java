@@ -93,6 +93,9 @@ public class KalahaApplicationTests {
         Pit pit = board.selectPit(pitToSelect);
         Assert.assertEquals(0, pit.getStones());
         for (int i = 1; i <= stones; i++) {
+          if (pitToSelect + i > 13) {
+            pitToSelect = pitToSelect - (pitToSelect + i);
+          }
             Pit nextPit = board.getPitsAndZones().get( pitToSelect + i);
             Assert.assertEquals(nextPit.isEndZone() ? 1 : 7, nextPit.getStones());
         }
