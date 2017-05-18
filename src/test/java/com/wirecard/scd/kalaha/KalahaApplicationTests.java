@@ -82,8 +82,8 @@ public class KalahaApplicationTests {
     pit = board.selectPit(0);
     Assert.assertEquals(0, pit.getStones());
     for (int i = 1; i <= stones; i++) {
-      Pit nextPit = board.getPits().get(i);
-      Assert.assertEquals(7, nextPit.getStones());
+      Pit nextPit = board.getPitsAndZones().get(i);
+      Assert.assertEquals(nextPit.isEndZone() ? 1: 7, nextPit.getStones());
     }
 
 
