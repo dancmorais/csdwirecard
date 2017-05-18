@@ -45,13 +45,18 @@ public class Board {
   }
 
   public Pit selectPit(int i) {
-//    Pit selectedPit = pits.get(i);
+    distributeStones(i);
     pits.get(i).setStones(0);
     return pits.get(i);
   }
 
-  public void distributeStones(){
-
+  public void distributeStones(int i) {
+    int stones = pits.get(i)
+                     .getStones();
+    for (int j = 1; j <= stones; j++) {
+      Pit currentPit = pits.get(i + j);
+      currentPit.setStones(currentPit.getStones() + 1);
+    }
   }
 
 
