@@ -12,16 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BoardController {
 
+    private Board board = null;
+
     @CrossOrigin
     @RequestMapping("/board/new")
     public Board newBoard() {
-        return new Board();
+        board = new Board();
+        //board.getPitsAndZones().get(0).setStones(13);
+        return board;
     }
 
     @CrossOrigin
     @RequestMapping("/move/{index}")
     public Board move(@PathVariable int index) {
         System.out.println("move: "+index);
-        return new Board();
+        board.selectPit(index);
+        //board.getPitsAndZones().get(index).setStones(0);
+        return board;
     }
 }
